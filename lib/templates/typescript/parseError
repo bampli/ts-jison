@@ -1,0 +1,9 @@
+function parseError (str: string, hash: {[key: string]: any}): void {
+    if (hash.recoverable) {
+        this.trace(str);
+    } else {
+        var error = new Error(str);
+        (<any>error).hash = hash;
+        throw error;
+    }
+}

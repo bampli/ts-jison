@@ -1,11 +1,16 @@
-Jison
+ts-jison
+=====
+
+This is a fork of Zach Carter <zach@carter.name>'s [jison module](https://www.npmjs.com/package/jison) tweaked to use just enough templates to make typescript compilers tollerate the generated parser.
+
+Original Jison README (modulo compilation examples):
 =====
 * [issues](http://github.com/zaach/jison/issues)
 * [discuss](mailto:jison@librelist.com)
 
 [![build status](https://travis-ci.org/zaach/jison.svg)](http://travis-ci.org/zaach/jison)
 
-An API for creating parsers in JavaScript
+A lightly-typescriptified API for creating parsers in JavaScript
 -----------------------------------------
 
 Jison generates bottom-up parsers in JavaScript. Its API is similar to Bison's, hence the name. It supports many of Bison's major features, plus some of its own. If you are new to parser generators such as Bison, and Context-free Grammars in general, a [good introduction][1] is found in the Bison manual. If you already know Bison, Jison should be easy to pickup.
@@ -18,19 +23,19 @@ Jison can be installed for [Node](http://nodejs.org) using [`npm`](http://github
 
 Using npm:
 
-    npm install jison -g
+    npm install ts-jison -g
 
 Usage from the command line
 -----------------------
 
 Clone the github repository for examples:
 
-    git clone git://github.com/zaach/jison.git
-    cd jison/examples
+    git clone git://github.com/ericprud/ts-jison.git
+    cd ts-jison/examples
 
 Now you're ready to generate some parsers:
 
-    jison calculator.jison
+    npx jison calculator.jison
 
 This will generate `calculator.js` in your current working directory. This file can be used to parse an input file, like so:
 
@@ -49,9 +54,10 @@ Full cli option list:
     Options:
        -j, --json                    force jison to expect a grammar in JSON format
        -o FILE, --outfile FILE       Filename and base module name of the generated parser
-       -t, --debug                   Debug mode
+       -d, --debug                   Debug mode
        -m TYPE, --module-type TYPE   The type of module to generate (commonjs, amd, js)
        -p TYPE, --parser-type TYPE   The type of algorithm to use for the parser (lr0, slr, lalr, lr)
+       -t, --template                Template directory to use for code generation, defaults to javascript
        -V, --version                 print version and exit
 
 

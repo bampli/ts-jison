@@ -1,0 +1,1 @@
+yytext:any, yyleng:any, yylineno:any, yy:any, yystate:any /* action[1] */, $$:any /* vstack */, _$:any /* lstack */
