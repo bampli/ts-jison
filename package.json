@@ -53,6 +53,11 @@
     "uglify-js": "~2.4.0"
   },
   "scripts": {
+    "calculator": "npm run generate:calculator && npm run compile:calculator && npm run run:calculator && npm run ts-node:calculator",
+    "generate:calculator": "./lib/cli.js -t typescript -o examples/ts-calculator.ts examples/ts-calculator.jison",
+    "compile:calculator": "tsc examples/ts-calculator",
+    "run:calculator": "node examples/ts-calculator.js examples/testcalc",
+    "ts-node:calculator": "ts-node examples/ts-calculator.ts examples/testcalc",
     "test": "node tests/all-tests.js"
   },
   "homepage": "http://jison.org"
