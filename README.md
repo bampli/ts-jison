@@ -60,6 +60,9 @@ Full cli option list:
        -t, --template                Template directory to use for code generation, defaults to javascript
        -V, --version                 print version and exit
 
+Command line ts-node
+
+    npx ts-node -e 'const p = require("./grammar").parser; console.log(p.parse("( ( (\n ) ) )\n"));
 
 Usage from a CommonJS module
 --------------------------
