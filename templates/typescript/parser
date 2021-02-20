@@ -162,8 +162,6 @@ parse (input: string) {
 
     if (typeof (<any>sharedState.yy).parseError === 'function') {
         this.parseError = (<any>sharedState.yy).parseError;
-    } else {
-        this.parseError = Object.getPrototypeOf(this).parseError;
     }
 
     function popStack (n: number) {

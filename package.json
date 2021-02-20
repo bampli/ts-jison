@@ -6,7 +6,7 @@
   },
   "name": "ts-jison",
   "description": "A lightly-typescriptified version of jison",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "license": "MIT",
   "keywords": [
     "jison",
