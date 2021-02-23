@@ -5,6 +5,12 @@ function getCommandlineOptions () {
     var version = require('../package.json').version;
     var opts = require("nomnom")
         .script('jison')
+        .option('name', {
+            abbr : 'n',
+            default: '',
+            metavar : 'NAME',
+            help : 'prefix for name of parser and lexer to emit, e.g. "FooParser" and "FooLexer"'
+        })
         .option('file', {
             flag : true,
             position : 0,
@@ -34,23 +40,20 @@ function getCommandlineOptions () {
         })
         .option('module-type', {
             abbr : 'm',
-        default:
-            'commonjs',
+            default: 'core',
             metavar : 'TYPE',
-            help : 'The type of module to generate (commonjs, amd, js)'
+            help : 'The type of module to generate (commonjs, amd, js, core)'
         })
         .option('parser-type', {
             abbr : 'p',
-        default:
-            'lalr',
+            default: 'lalr',
             metavar : 'TYPE',
             help : 'The type of algorithm to use for the parser (lr0, slr,' +
                 'lalr, lr)'
         })
         .option('template', {
             abbr : 't',
-        default:
-            'javascript',
+            default: 'javascript',
             metavar : 'TYPE',
             help : 'Built-in (javascript, typescript) or path to template' +
                 'directory with "error" and "parser" files'
@@ -156,6 +159,9 @@ cli.generateParserString = function generateParserString(opts, grammar) {
     settings.debug = opts.debug;
     if (!settings.moduleType) {
         settings.moduleType = opts['module-type'];
+    }
+    if (opts.name) {
+        settings.name = opts.name;
     }
     if (opts.template) {
         settings.template = opts.template;

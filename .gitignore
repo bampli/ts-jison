@@ -1,7 +1,9 @@
-.DS_Store
 node_modules
 
 # Editor backup files
 *.bak
 *~
-web/content/assets/js/jison.js
+
+packages/parser/lib
+packages/lexer/lib
+packages/common/lib

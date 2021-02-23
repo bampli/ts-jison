@@ -5,7 +5,7 @@
 %lex
 %%
 
-\s+                   /* skip whitespace */
+\s+                   if (yy.trace) yy.trace('skipping') /* skip whitespace */
 [0-9]+("."[0-9]+)?\b  return 'NUMBER'
 "*"                   return '*'
 "/"                   return '/'
@@ -38,7 +38,7 @@
 
 expressions
     : e EOF
-        { console.log($1);
+        { if (yy.trace) yy.trace('returning', $1);
           return $1; }
     ;
 

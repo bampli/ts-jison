@@ -1,12 +1,12 @@
 import { TokenLocation, ParseErrorType } from '@ts-jison/common';
 
-export interface LexerType {
+export interface JisonLexerApi {
   EOF: number;
   parseError: ParseErrorType;
-  setInput: (input: string, yy: any) => LexerType;
+  setInput: (input: string, yy: any) => JisonLexerApi;
   input: () => string;
-  unput: (str: string) => LexerType;
-  more: () => LexerType;
+  unput: (str: string) => JisonLexerApi;
+  more: () => JisonLexerApi;
   less: (n: number) => void;
   pastInput: () => string;
   upcomingInput: () => string;
@@ -32,7 +32,7 @@ export interface LexerType {
   rules: RegExp[];
   conditions: { [name: string]: number[] /* set */ };
   yy?: any;
-  reject: () => LexerType;
+  reject: () => JisonLexerApi;
   stateStackSize: () => number;
   yylloc: TokenLocation;
   yyleng: number;
@@ -42,7 +42,9 @@ export interface LexerType {
 }
 
 export abstract class JisonLexer {
-  public yy: any = {};
+  constructor (
+    public yy: any = {},
+  ) { }
 
   public EOF: number = 1;
   abstract options: any = {};
@@ -206,7 +208,7 @@ export abstract class JisonLexer {
   test_match(match: RegExpMatchArray | null, indexed_rule: any) {
     var token,
       lines,
-      backup: LexerType;
+      backup: JisonLexerApi;
 
     if (this.options.backtrack_lexer) {
       // save context

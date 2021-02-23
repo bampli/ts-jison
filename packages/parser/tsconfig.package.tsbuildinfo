@@ -141,9 +141,14 @@
         "signature": "a2c3ba1167afc5de08251f2b8d8a7082826249657e265aaf7e974b0993fca825",
         "affectsGlobalScope": false
       },
-      "./src/lexer.ts": {
-        "version": "89b2534123b0716f000c73594e3198d871c35fa976c89985b3c5469c95b6488e",
+      "../lexer/lib/lexer.d.ts": {
+        "version": "c4fd71d3783f6fbb25cdd6f28346ec4316d44ffd9f1d78b641d4bb5fd990cdab",
         "signature": "c4fd71d3783f6fbb25cdd6f28346ec4316d44ffd9f1d78b641d4bb5fd990cdab",
+        "affectsGlobalScope": false
+      },
+      "./src/parser.ts": {
+        "version": "137fca5c02dec2e69cda9ca834572149753a5f015b4a03b352c840b7d4cff356",
+        "signature": "86696abdc0f399dafcfe4d0fb10b0f056f02aa8a32ff9241a8cb41cf99dd4292",
         "affectsGlobalScope": false
       },
       "../../node_modules/@types/node/globals.d.ts": {
@@ -582,8 +587,12 @@
       "../../node_modules/@types/node/zlib.d.ts": [
         "../../node_modules/@types/node/stream.d.ts"
       ],
-      "./src/lexer.ts": [
+      "../lexer/lib/lexer.d.ts": [
         "../common/lib/common.d.ts"
+      ],
+      "./src/parser.ts": [
+        "../common/lib/common.d.ts",
+        "../lexer/lib/lexer.d.ts"
       ]
     },
     "exportedModulesMap": {
@@ -757,8 +766,12 @@
       "../../node_modules/@types/node/zlib.d.ts": [
         "../../node_modules/@types/node/stream.d.ts"
       ],
-      "./src/lexer.ts": [
+      "../lexer/lib/lexer.d.ts": [
         "../common/lib/common.d.ts"
+      ],
+      "./src/parser.ts": [
+        "../common/lib/common.d.ts",
+        "../lexer/lib/lexer.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
@@ -810,7 +823,8 @@
       "../../node_modules/@types/node/worker_threads.d.ts",
       "../../node_modules/@types/node/zlib.d.ts",
       "../common/lib/common.d.ts",
-      "./src/lexer.ts",
+      "../lexer/lib/lexer.d.ts",
+      "./src/parser.ts",
       "../../../../../../../usr/local/lib/node_modules/typescript/lib/lib.es2015.collection.d.ts",
       "../../../../../../../usr/local/lib/node_modules/typescript/lib/lib.es2015.core.d.ts",
       "../../../../../../../usr/local/lib/node_modules/typescript/lib/lib.es2015.d.ts",

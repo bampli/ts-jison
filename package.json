@@ -44,17 +44,24 @@
     "typescript": "^4.1.3"
   },
   "devDependencies": {
+    "@ts-jison/parser": "file:packages/parser",
+    "@ts-jison/lexer": "file:packages/lexer",
+    "@ts-jison/common": "file:packages/common",
     "browserify": "2.x.x",
     "jison": "0.4.x",
     "test": "0.6.x",
     "uglify-js": "~2.4.0"
   },
   "scripts": {
-    "calculator": "npm run generate:calculator && npm run compile:calculator && npm run run:calculator && npm run ts-node:calculator",
-    "generate:calculator": "./packages/parser-generator/lib/cli.js -t typescript -o packages/parser-generator/examples/ts-calculator.ts packages/parser-generator/examples/ts-calculator.jison",
-    "compile:calculator": "tsc packages/parser-generator/examples/ts-calculator",
-    "run:calculator": "node packages/parser-generator/examples/ts-calculator.js packages/parser-generator/examples/testcalc",
-    "ts-node:calculator": "ts-node packages/parser-generator/examples/ts-calculator.ts packages/parser-generator/examples/testcalc",
+    "build999": "lerna run build",
+    "build": "for d in packages/{common,lexer,parser}/; do (cd $d &&  tsc -b tsconfig.package.json); done",
+    "clean": "rm -r packages/{common,lexer,parser}/lib/",
+    "calculator": "npm run generate:calculator && npm run compile:calculator && npm run cli:calculator && npm run ts-node:calculator",
+    "generate:calculator": "(cd packages/parser-generator/examples/ && ../lib/cli.js -n Calculator -t typescript -o ts-calculator.ts ts-calculator.jison)",
+    "compile:calculator": "(cd packages/parser-generator/examples/ && tsc ts-calculator.ts)",
+    "run:calculator": "(cd packages/parser-generator/examples/ && node ts-calculator.js testcalc)",
+    "cli:calculator": "(cd packages/parser-generator/examples/ && node ts-calculator.cli.js testcalc)",
+    "ts-node:calculator": "(cd packages/parser-generator/examples/ && ts-node ts-calculator.ts testcalc)",
     "test": "node tests/all-tests.js"
   },
   "homepage": "http://jison.org"
