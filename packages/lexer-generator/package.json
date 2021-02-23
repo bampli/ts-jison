@@ -1,6 +1,6 @@
 {
   "name": "@ts-jison/lexer-generator",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./lib/regexp-lexer.js",
   "bin": "lib/cli.js",
   "types999": "./lib/common.d.ts",
@@ -12,7 +12,7 @@
     "node": ">=0.4"
   },
   "dependencies": {
-    "@ts-jison/lexer": "^0.0.1"
+    "@ts-jison/lexer": "^0.0.2"
   },
   "publishConfig": {
     "access": "public"

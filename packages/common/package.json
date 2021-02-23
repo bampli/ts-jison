@@ -1,13 +1,11 @@
 {
   "name": "@ts-jison/common",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./lib/common.js",
   "types": "./lib/common.d.ts",
   "files": [
     "lib"
   ],
-  "dependencies": {
-  },
   "publishConfig": {
     "access": "public"
   },
