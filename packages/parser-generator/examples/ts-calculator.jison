@@ -1,11 +1,18 @@
 
 /* description: Parses and executes mathematical expressions. */
+%{
+function hexlify (str:string): string {
+  return str.split('')
+    .map(ch => '0x' + ch.charCodeAt(0).toString(16))
+    .join(', ')
+}
+%}
 
 /* lexical grammar */
 %lex
 %%
 
-\s+                   if (yy.trace) yy.trace('skipping') /* skip whitespace */
+\s+                   if (yy.trace) yy.trace(`skipping whitespace ${hexlify(yytext)}`) // doesn't return
 [0-9]+("."[0-9]+)?\b  return 'NUMBER'
 "*"                   return '*'
 "/"                   return '/'

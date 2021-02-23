@@ -2,6 +2,13 @@
 /**
  * Returns a Parser implementing JisonParserApi and a Lexer implementing JisonLexerApi.
  */
+
+function hexlify (str:string): string {
+  return str.split('')
+    .map(ch => '0x' + ch.charCodeAt(0).toString(16))
+    .join(', ')
+}
+
 import { JisonParser, JisonParserApi, StateType, SymbolsType, TerminalsType, ProductionsType, o } from '@ts-jison/parser';
 import { JisonLexer, JisonLexerApi } from '@ts-jison/lexer';
 
@@ -83,7 +90,7 @@ export class Lexer extends JisonLexer implements JisonLexerApi {
   performAction (yy:any,yy_:any,$avoiding_name_collisions:any,YY_START:any): any {
     var YYSTATE=YY_START;
     switch($avoiding_name_collisions) {
-    case 0:if (yy.trace) yy.trace('skipping') /* skip whitespace */
+    case 0:if (yy.trace) yy.trace(`skipping whitespace ${hexlify(yy_.yytext)}`) // doesn't return
       break;
     case 1:return 15
       break;

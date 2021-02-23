@@ -7,7 +7,8 @@
     "lib"
   ],
   "dependencies": {
-    "@ts-jison/common": "^0.0.1"
+    "@ts-jison/common": "^0.0.1",
+    "@ts-jison/lexer": "^0.0.1"
   },
   "publishConfig": {
     "access": "public"

@@ -1008,7 +1008,8 @@ lrGeneratorMixin.generateModuleCore = function generateModuleCore (opt) {
         + "/**\n"
         + " * Returns a Parser implementing JisonParserApi and a Lexer implementing JisonLexerApi.\n"
         + " */\n";
-  out += this.generateModuleCode() + "\n";
+    if (this.moduleInclude) out += this.moduleInclude + "\n";
+    out += this.generateModuleCode() + "\n";
     if (this.lexer && this.lexer.generateModuleCore) {
         out += "\n" + this.lexer.generateModuleCore();
     }
