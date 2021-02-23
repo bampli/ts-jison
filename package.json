@@ -59,9 +59,9 @@
     "calculator": "npm run generate:calculator && npm run compile:calculator && npm run cli:calculator && npm run ts-node:calculator",
     "generate:calculator": "(cd packages/parser-generator/examples/ && ../lib/cli.js -n Calculator -t typescript -o ts-calculator.ts ts-calculator.jison)",
     "compile:calculator": "(cd packages/parser-generator/examples/ && tsc ts-calculator.ts)",
-    "run:calculator": "(cd packages/parser-generator/examples/ && node ts-calculator.js testcalc)",
-    "cli:calculator": "(cd packages/parser-generator/examples/ && node ts-calculator.cli.js testcalc)",
-    "ts-node:calculator": "(cd packages/parser-generator/examples/ && ts-node ts-calculator.ts testcalc)",
+    "run:calculator": "(cd packages/parser-generator/examples/ && node ts-calculator.js calculator.input.txt)",
+    "cli:calculator": "(cd packages/parser-generator/examples/ && node ts-calculator.cli.js calculator.input.txt)",
+    "ts-node:calculator": "(cd packages/parser-generator/examples/ && ts-node ts-calculator.ts calculator.input.txt)",
     "test": "node tests/all-tests.js"
   },
   "homepage": "http://jison.org"
