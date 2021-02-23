@@ -1,12 +1,7 @@
 {
-  "author": {
-    "name": "Eric Prudhommeaux",
-    "email": "eric@w3.org",
-    "url": "http://www.w3.org/People/Eric/"
-  },
   "name": "ts-jison",
   "description": "A lightly-typescriptified version of jison",
-  "version": "0.0.5",
+  "homepage": "http://jison.org",
   "license": "MIT",
   "keywords": [
     "jison",
@@ -20,7 +15,8 @@
     "compiler",
     "typescript"
   ],
-  "preferGlobal": true,
+  "private": true,
+  "version": "0.0.5",
   "repository": {
     "type": "git",
     "url": "git://github.com/ericprud/ts-jison.git"
@@ -28,6 +24,12 @@
   "bugs": {
     "url": "http://github.com/ericprud/ts-jison/issues"
   },
+  "author": {
+    "name": "Eric Prudhommeaux",
+    "email": "eric@w3.org",
+    "url": "http://www.w3.org/People/Eric/"
+  },
+  "preferGlobal": true,
   "engines": {
     "node": ">=0.4"
   },
@@ -63,6 +65,5 @@
     "cli:calculator": "(cd packages/parser-generator/examples/ && node ts-calculator.cli.js calculator.input.txt)",
     "ts-node:calculator": "(cd packages/parser-generator/examples/ && ts-node ts-calculator.ts calculator.input.txt)",
     "test": "node tests/all-tests.js"
-  },
-  "homepage": "http://jison.org"
+  }
 }
