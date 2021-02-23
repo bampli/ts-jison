@@ -170,6 +170,7 @@ parse (input: string) {
         lstack.length = lstack.length - n;
     }
 
+// @ts-ignore
 _token_stack:
     var lex = function () {
         var token:number;

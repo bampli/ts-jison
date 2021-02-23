@@ -1,0 +1,24 @@
+{
+  "name": "@ts-jison/lexer-generator",
+  "version": "0.0.1",
+  "main": "./lib/regexp-lexer.js",
+  "bin": "lib/cli.js",
+  "types999": "./lib/common.d.ts",
+  "files": [
+    "cli",
+    "lib"
+  ],
+  "engines": {
+    "node": ">=0.4"
+  },
+  "dependencies": {
+    "@ts-jison/lexer": "^0.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "echo nothing to build in lexer-generator",
+    "prepublish": "npm run build"
+  }
+}

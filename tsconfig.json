@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@ts-jison/common": ["common/src"],
+      "@ts-jison/lexer": ["lexer/src"],
+      "@ts-jison/parser": ["parser/src"],
+      "@ts-jison/*": ["*/src"]
+    },
+    "noEmit": true
+  }
+}

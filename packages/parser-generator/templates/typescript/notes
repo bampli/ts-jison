@@ -1,0 +1,10 @@
+VARIABLES = tableCode.commonCode
+SYMBOLS = JSON.stringify(this.symbols_)
+TERMINALS = JSON.stringify(this.terminals_).replace(/"([0-9]+)":/g,"$1:")
+PRODUCTIONS = JSON.stringify(this.productions_)
+TABLE = tableCode.moduleCode
+DEFAULT_ACTIONS = JSON.stringify(this.defaultActions).replace(/"([0-9]+)":/g,"$1:")
+PARSE_PARAMS = parser.parseParams ? ", " + parser.parseParams : ""
+ACTION_INCLUDE = this(generator).actionInclude || ''
+STATE_ACTIONS = String(this.performAction)
+

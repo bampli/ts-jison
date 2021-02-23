@@ -1,0 +1,19 @@
+{
+  "name": "@ts-jison/lexer",
+  "version": "0.0.1",
+  "main": "./lib/lexer.js",
+  "types": "./lib/lexer.d.ts",
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "@ts-jison/common": "^0.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -b ./tsconfig.package.json",
+    "prepublish": "npm run build"
+  }
+}

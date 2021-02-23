@@ -1,0 +1,41 @@
+{
+  "name": "@ts-jison/parser-generator",
+  "description": "A lightly-typescriptified version of jison",
+  "version": "0.0.1",
+  "license": "MIT",
+  "keywords": [
+    "jison",
+    "bison",
+    "yacc",
+    "parser",
+    "generator",
+    "lexer",
+    "flex",
+    "tokenizer",
+    "compiler",
+    "typescript"
+  ],
+  "preferGlobal": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ericprud/ts-jison.git"
+  },
+  "bugs": {
+    "url": "http://github.com/ericprud/ts-jison/issues"
+  },
+  "main": "lib/jison",
+  "bin": "lib/cli.js",
+  "engines": {
+    "node": ">=0.4"
+  },
+  "dependencies": {
+    "@ts-jison/lexer-generator": "^0.0.1"
+  },
+  "devDependencies": {
+  },
+  "scripts": {
+    "build": "echo nothing to build in parser-generator",
+    "prepublish": "npm run build"
+  },
+  "homepage": "http://jison.org"
+}
