@@ -27,8 +27,9 @@
   "bin": "lib/cli.js",
   "types999": "./lib/common.d.ts",
   "files": [
-    "cli",
-    "lib"
+    "lib",
+    "templates",
+    "examples"
   ],
   "engines": {
     "node": ">=0.4"
