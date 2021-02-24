@@ -224,9 +224,11 @@ function generateModuleCore(lexer, opt, templateParm) {
         { token: "STATE_ACTIONS", value: String(lexer.strs.performAction) },
     ];
 
-    out += templateParms.reduce(function (str, parm) {
+    var moduleCode = templateParms.reduce(function (str, parm) {
         return repl(str, parm.token, parm.value);
     }, lexer.lexerTemplate);
+    moduleCode = moduleCode.replace(/{{NAME}}/g, opt.moduleName || "");
+    out += moduleCode;
 
     if (opt.moduleInclude) {
         out += ";\n" + opt.moduleInclude;

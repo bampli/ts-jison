@@ -3,11 +3,11 @@ import { JisonLexer, JisonLexerApi } from '@ts-jison/lexer';
 
 const {{VARIABLES}};
 
-export class Parser extends JisonParser implements JisonParserApi {
-  public Parser?: Parser;
+export class {{NAME}}Parser extends JisonParser implements JisonParserApi {
+  public Parser?: {{NAME}}Parser;
   $?: any;
 
-  constructor (yy = {}, lexer = new Lexer(yy)) {
+  constructor (yy = {}, lexer = new {{NAME}}Lexer(yy)) {
     super(yy, lexer);
   }
 

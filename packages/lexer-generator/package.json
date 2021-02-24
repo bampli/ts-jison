@@ -1,6 +1,28 @@
 {
   "name": "@ts-jison/lexer-generator",
+  "description": "A lightly-typescriptified version of jison-lex",
   "version": "0.0.2",
+  "license": "MIT",
+  "keywords": [
+    "jison",
+    "bison",
+    "yacc",
+    "parser",
+    "generator",
+    "lexer",
+    "flex",
+    "tokenizer",
+    "compiler",
+    "typescript"
+  ],
+  "preferGlobal": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ericprud/ts-jison.git"
+  },
+  "bugs": {
+    "url": "http://github.com/ericprud/ts-jison/issues"
+  },
   "main": "./lib/regexp-lexer.js",
   "bin": "lib/cli.js",
   "types999": "./lib/common.d.ts",
@@ -20,5 +42,7 @@
   "scripts": {
     "build": "echo nothing to build in lexer-generator",
     "prepublish": "npm run build"
-  }
+  },
+  "homepage": "http://jison.org",
+  "gitHead": "f04f018b7655bccbf21e4fe9dab005b8ee179fab"
 }

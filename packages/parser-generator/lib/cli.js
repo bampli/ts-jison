@@ -161,7 +161,7 @@ cli.generateParserString = function generateParserString(opts, grammar) {
         settings.moduleType = opts['module-type'];
     }
     if (opts.name) {
-        settings.name = opts.name;
+        settings.moduleName = opts.name;
     }
     if (opts.template) {
         settings.template = opts.template;

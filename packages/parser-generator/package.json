@@ -25,15 +25,34 @@
   },
   "main": "lib/jison",
   "bin": "lib/cli.js",
+  "types999": "./lib/common.d.ts",
+  "files": [
+    "lib",
+    "templates",
+    "examples"
+  ],
   "engines": {
     "node": ">=0.4"
   },
   "dependencies": {
-    "@ts-jison/lexer-generator": "^0.0.2"
+    "@ts-jison/lexer-generator": "^0.0.2",
+    "cjson": "^0.5.0",
+    "escodegen": "^2.0.0",
+    "esprima": "^4.0.1",
+    "JSONSelect": "^0.4.0",
+    "lex-parser": "^0.1.4",
+    "nomnom": "1.5.2"
+  },
+  "peerDependencies": {
+    "@ts-jison/parser": "^0.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "build": "echo nothing to build in parser-generator",
     "prepublish": "npm run build"
   },
-  "homepage": "http://jison.org"
+  "homepage": "http://jison.org",
+  "gitHead": "f04f018b7655bccbf21e4fe9dab005b8ee179fab"
 }

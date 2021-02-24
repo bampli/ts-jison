@@ -1,4 +1,4 @@
-export class Lexer extends JisonLexer implements JisonLexerApi {
+export class {{NAME}}Lexer extends JisonLexer implements JisonLexerApi {
   options: any = {{OPTIONS}};
   constructor (yy = {}) {
     super(yy);
