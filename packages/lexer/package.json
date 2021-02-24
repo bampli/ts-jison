@@ -1,13 +1,13 @@
 {
   "name": "@ts-jison/lexer",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "./lib/lexer.js",
   "types": "./lib/lexer.d.ts",
   "files": [
     "lib"
   ],
   "dependencies": {
-    "@ts-jison/common": "^0.0.4"
+    "@ts-jison/common": "^0.0.5"
   },
   "publishConfig": {
     "access": "public"

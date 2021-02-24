@@ -1,7 +1,7 @@
 {
   "name": "@ts-jison/lexer-generator",
   "description": "A lightly-typescriptified version of jison-lex",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "keywords": [
     "jison",
@@ -35,7 +35,7 @@
     "node": ">=0.4"
   },
   "dependencies": {
-    "@ts-jison/lexer": "^0.0.4"
+    "@ts-jison/lexer": "^0.0.5"
   },
   "publishConfig": {
     "access": "public"
