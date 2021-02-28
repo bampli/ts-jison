@@ -1,14 +1,14 @@
 {
   "name": "@ts-jison/parser",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "./lib/parser.js",
   "types": "./lib/parser.d.ts",
   "files": [
     "lib"
   ],
   "dependencies": {
-    "@ts-jison/common": "^0.0.5",
-    "@ts-jison/lexer": "^0.0.5"
+    "@ts-jison/common": "^0.0.6",
+    "@ts-jison/lexer": "^0.0.6"
   },
   "publishConfig": {
     "access": "public"

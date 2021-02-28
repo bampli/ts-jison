@@ -1,7 +1,7 @@
 {
   "name": "@ts-jison/parser-generator",
   "description": "A lightly-typescriptified version of jison",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "MIT",
   "keywords": [
     "jison",
@@ -24,7 +24,9 @@
     "url": "http://github.com/ericprud/ts-jison/issues"
   },
   "main": "lib/jison",
-  "bin": { "ts-jison": "lib/cli.js" },
+  "bin": {
+    "ts-jison": "lib/cli.js"
+  },
   "types999": "./lib/common.d.ts",
   "files": [
     "lib",
@@ -35,8 +37,8 @@
     "node": ">=0.4"
   },
   "dependencies": {
-    "@ts-jison/lexer-generator": "^0.0.5",
-    "@ts-jison/parser": "^0.0.5",
+    "@ts-jison/lexer-generator": "^0.0.6",
+    "@ts-jison/parser": "^0.0.6",
     "JSONSelect": "^0.4.0",
     "cjson": "^0.5.0",
     "escodegen": "^2.0.0",

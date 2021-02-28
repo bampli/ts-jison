@@ -1,7 +1,7 @@
 {
   "name": "@ts-jison/lexer-generator",
   "description": "A lightly-typescriptified version of jison-lex",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "MIT",
   "keywords": [
     "jison",
@@ -24,7 +24,9 @@
     "url": "http://github.com/ericprud/ts-jison/issues"
   },
   "main": "./lib/regexp-lexer.js",
-  "bin": { "ts-lex": "lib/cli.js" },
+  "bin": {
+    "ts-lex": "lib/cli.js"
+  },
   "types999": "./lib/common.d.ts",
   "files": [
     "lib",
@@ -35,7 +37,7 @@
     "node": ">=0.4"
   },
   "dependencies": {
-    "@ts-jison/lexer": "^0.0.5"
+    "@ts-jison/lexer": "^0.0.6"
   },
   "publishConfig": {
     "access": "public"
