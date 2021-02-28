@@ -24,7 +24,7 @@
     "url": "http://github.com/ericprud/ts-jison/issues"
   },
   "main": "lib/jison",
-  "bin": "lib/cli.js",
+  "bin": { "ts-jison": "lib/cli.js" },
   "types999": "./lib/common.d.ts",
   "files": [
     "lib",
