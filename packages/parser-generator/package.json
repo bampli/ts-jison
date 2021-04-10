@@ -40,6 +40,7 @@
     "@ts-jison/lexer-generator": "^0.0.6",
     "@ts-jison/parser": "^0.0.6",
     "JSONSelect": "^0.4.0",
+    "ebnf-parser": "^0.1.10",
     "cjson": "^0.5.0",
     "escodegen": "^2.0.0",
     "esprima": "^4.0.1",
