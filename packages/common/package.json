@@ -1,6 +1,6 @@
 {
   "name": "@ts-jison/common",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "./lib/common.js",
   "types": "./lib/common.d.ts",
   "files": [
