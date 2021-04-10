@@ -3,6 +3,12 @@ ts-jison
 
 This is a fork of Zach Carter <zach@carter.name>'s [jison module](https://www.npmjs.com/package/jison) tweaked to use just enough templates to make typescript compilers tollerate the generated parser.
 
+Status:
+=====
+
+This works (I'm using it in a few javascript and typescritp projects) but the original tests are all dynamic and i'm not sure how to manage that with the modularized parser and lexer generators dynamically generating code that imports the common modules. Thoughts? -- ericP (ericprud on gitter)
+
+
 Original Jison README (modulo compilation examples):
 =====
 * [issues](http://github.com/zaach/jison/issues)

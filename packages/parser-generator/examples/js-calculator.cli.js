@@ -1,6 +1,5 @@
 const Fs = require('fs');
-const CalculatorParser = require('./ts-calculator.js');
-
+const CalculatorParser = require('./js-calculator.js');
 main(process.argv.slice(1));
 
 function main (args) {

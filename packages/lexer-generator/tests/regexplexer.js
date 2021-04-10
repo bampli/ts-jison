@@ -1,4 +1,4 @@
-var RegExpLexer = require("../regexp-lexer"),
+var RegExpLexer = require("../lib/regexp-lexer"),
     assert = require("assert");
 
 exports["test basic matchers"] = function() {
