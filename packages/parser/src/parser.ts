@@ -132,7 +132,7 @@ export abstract class JisonParser {
           // Report error
           expected = [];
           for (const _p in table[state]) {
-            p = Number(p);
+            p = Number(_p);
             if (this.terminals_[p] && p > TERROR) {
               expected.push("'" + this.terminals_[p] + "'");
             }
@@ -148,7 +148,7 @@ export abstract class JisonParser {
             text: lexer.match!,
             token: this.terminals_[symbol!] || symbol!,
             line: lexer.yylineno!,
-            loc: yyloc,
+            loc: lexer.yylloc,
             expected: expected,
             recoverable: (error_rule_depth !== null)
           });
