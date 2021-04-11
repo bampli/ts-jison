@@ -188,26 +188,22 @@ function generateFromOpts (lexer, opt) {
 }
 
 function generateModuleBody (opt, templateParm) {
-    var templates = Path.join(__dirname, '..', 'templates', (templateParm || 'javascript'));
+    var templatePath = Path.join(__dirname, '..', 'templates', (templateParm || 'javascript')) + '.yaml';
+    const templateText = Fs.readFileSync(templatePath, "utf8")
+    const template = require('js-yaml').load(templateText);
+
     var strs = {EOF: "1", options:JSON.stringify(opt.options)};
     const lexer = {strs};
-    lexer.lexerTemplate = readTemplate("lexer");
+    lexer.lexerTemplate = template.Lexer;
     if (opt.options) {
         lexer.options = JSON.stringify(opt.options);
     }
-    lexer.lexerType = Fs.readFileSync(Path.join(templates, "lexerType"), "utf-8");
+    lexer.lexerType = template.LexerType;
 
     lexer.strs.performAction = String(opt.performAction);
     lexer.strs.rules = "[" + opt.rules + "]";
     lexer.strs.conditions = JSON.stringify(opt.conditions);
     return lexer;
-
-    function readTemplate (name) {
-        return require('fs').readFileSync(
-            Path.join(templates, name),
-            "utf8"
-        ).replace(/\s*$/, ''); // trim trailing whitespace
-    }
 }
 
 function generateModuleFunction(lexer, opt, templateParm) {

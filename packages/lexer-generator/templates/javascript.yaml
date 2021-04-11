@@ -1,0 +1,30 @@
+LexerType: ''
+
+Lexer: |-
+  const { JisonLexer } = require('@ts-jison/lexer');
+  
+  function {{NAME}}Lexer (yy = {}) {
+    this.options = {{OPTIONS}};
+  
+    JisonLexer.call(this, yy);
+  
+    this.rules = {{RULES}};
+    this.conditions = {{CONDITIONS}};
+    this.performAction = function anonymous(yy,yy_,$avoiding_name_collisions,YY_START) {
+  {{ACTION_INCLUDE}}    const YYSTATE=YY_START;
+      switch($avoiding_name_collisions) {
+  {{STATE_ACTIONS}}
+      }
+    }
+  }
+  
+  // Extends JisonLexer
+  {{NAME}}Lexer.prototype = Object.create(JisonLexer.prototype);
+  Object.defineProperty({{NAME}}Lexer.prototype, 'constructor', {
+    value: {{NAME}}Lexer,
+    enumerable: false,
+    writable: true
+  });
+  
+  Object.defineProperty(exports, "__esModule", { value: true });
+  exports.{{NAME}}Lexer = {{NAME}}Lexer;

@@ -107,10 +107,13 @@ generator.constructor = function Jison_Generator (grammar, opt) {
     this.DEBUG = options.debug || false;
     if (this.DEBUG) this.mix(generatorDebug); // mixin debug methods
 
-    var template = Path.join(__dirname, '../templates', (opt.template || 'javascript'));
-    parser.parserTemplate = readTemplate('parser');
+    const templatePath = Path.join(__dirname, '../templates', (opt.template || 'javascript')) + '.yaml';
+    const templateText = require('fs').readFileSync(templatePath, "utf8")
+    const template = require('js-yaml').load(templateText);
+
+    parser.parserTemplate = template.Parser;
     parser.parseParams = grammar.parseParams;
-    parser.parseError = lrGeneratorMixin.parseError = readTemplate('parseError');
+    parser.parseError = lrGeneratorMixin.parseError = template.ParseError;
 
     this.processGrammar(grammar);
 
@@ -128,13 +131,6 @@ generator.constructor = function Jison_Generator (grammar, opt) {
             template: opt.template,
             moduleName: opt.moduleName
         });
-    }
-
-    function readTemplate (name) {
-        return require('fs').readFileSync(
-            Path.join(template, name),
-            "utf8"
-        ).replace(/\s*$/, ''); // trim trailing whitespace
     }
 };
 
@@ -1292,7 +1288,6 @@ var lrGeneratorDebug = {
 var parser = typal.beget();
 
 lrGeneratorMixin.createParser = function createParser () {
-    // var p = eval(code); console.warn('HERE', p);
     var code = "const [exports, require] = arguments;\n"
         + this.generateModuleExpr(this.options || {});
     const myExports = {}
