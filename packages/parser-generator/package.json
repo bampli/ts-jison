@@ -1,7 +1,7 @@
 {
   "name": "@ts-jison/parser-generator",
   "description": "A lightly-typescriptified version of jison",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "license": "MIT",
   "keywords": [
     "jison",
@@ -37,8 +37,8 @@
     "node": ">=0.4"
   },
   "dependencies": {
-    "@ts-jison/lexer-generator": "^0.0.9",
-    "@ts-jison/parser": "^0.0.9",
+    "@ts-jison/lexer-generator": "^0.1.0",
+    "@ts-jison/parser": "^0.1.0",
     "JSONSelect": "^0.4.0",
     "cjson": "^0.5.0",
     "ebnf-parser": "^0.1.10",
