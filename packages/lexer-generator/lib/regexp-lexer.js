@@ -129,8 +129,11 @@ function RegExpLexer (dict, input, tokens, config = {}) {
         generateAMDModule: function () { return generateAMDModule(lexerText, opts); },
     };
 
-    var code = generateFromOpts(lexerText, Object.assign({bare: true}, opts));
-    var lexer = eval(code);
+    var code = "const [exports, require] = arguments;\n"
+        + generateFromOpts(lexerText, Object.assign({bare: true}, opts));
+    const myExports = {}
+    new Function(code)(myExports, require);
+    const lexer = new myExports.Lexer();
 
     if (input) {
         lexer.setInput(input);

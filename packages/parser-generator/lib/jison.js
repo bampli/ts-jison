@@ -1040,7 +1040,7 @@ lrGeneratorMixin.generateModuleExpr = function generateModuleExpr (opt) {
         out += "var lexer = " + this.lexer.generateModule(opt);
         out += "\nparser.lexer = lexer;";
     }
-    out += "\nreturn parser;\n})();";
+    out += "\n})();";
 
     return out;
 };
@@ -1292,8 +1292,12 @@ var lrGeneratorDebug = {
 var parser = typal.beget();
 
 lrGeneratorMixin.createParser = function createParser () {
-
-    var p = eval(this.generateModuleExpr(this.options || {}));
+    // var p = eval(code); console.warn('HERE', p);
+    var code = "const [exports, require] = arguments;\n"
+        + this.generateModuleExpr(this.options || {});
+    const myExports = {}
+    new Function(code)(myExports, require);
+    const p = new myExports.Parser({}, null);
 
     // for debugging
     p.productions = this.productions;
