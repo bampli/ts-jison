@@ -12,6 +12,6 @@ function main (args) {
   const myYy = {
     // trace: function () { console.log('trace:', ...arguments); }
   };
-  const res = new ParserAndLexer.jsCalculatorParser(myYy).parse(txt);
+  const res = new ParserAndLexer.JsCalcParser(myYy).parse(txt);
   console.log(txt.trim(), '=', res);
 };
