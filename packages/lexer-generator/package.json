@@ -37,7 +37,8 @@
     "node": ">=0.4"
   },
   "dependencies": {
-    "@ts-jison/lexer": "^0.1.0"
+    "@ts-jison/lexer": "^0.1.0",
+    "js-yaml": "^4.0.0"
   },
   "publishConfig": {
     "access": "public"
