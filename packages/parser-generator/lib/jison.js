@@ -1117,11 +1117,11 @@ lrGeneratorMixin.generateModuleCode = function generateModuleCode (opt) {
 
     // Generate the module creation code
     var templateParms = [
-        { token: "VARIABLES", value: tableCode.commonCode },
-        { token: "SYMBOLS", value: JSON.stringify(this.symbols_) },
+        { token: "STATE_TABLE_FACTORS", value: tableCode.commonCode },
+        { token: "STATE_NAMES", value: JSON.stringify(this.symbols_) },
         { token: "TERMINALS", value: JSON.stringify(this.terminals_).replace(/"([0-9]+)":/g,"$1:") },
         { token: "PRODUCTIONS", value: JSON.stringify(this.productions_) },
-        { token: "TABLE", value: tableCode.moduleCode },
+        { token: "STATE_TABLE", value: tableCode.moduleCode },
         { token: "DEFAULT_ACTIONS", value: JSON.stringify(this.defaultActions).replace(/"([0-9]+)":/g,"$1:") },
         { token: "PARSE_PARAMS", value: parser.parseParams ? ", " + parser.parseParams : "" },
         { token: "ACTION_INCLUDE", value: this.actionInclude || '' },

@@ -1,21 +1,18 @@
-
 import { JisonParser, JisonParserApi, StateType, SymbolsType, TerminalsType, ProductionsType, o } from '@ts-jison/parser';
-import { JisonLexer, JisonLexerApi } from '@ts-jison/lexer';
 
-const {{VARIABLES}};
+const {{STATE_TABLE_FACTORS}};
 
 export class {{NAME}}Parser extends JisonParser implements JisonParserApi {
-  public Parser?: {{NAME}}Parser;
   $?: any;
 
   constructor (yy = {}, lexer = new {{NAME}}Lexer(yy)) {
     super(yy, lexer);
   }
 
-  symbols_: SymbolsType = {{SYMBOLS}};
+  symbols_: SymbolsType = {{STATE_NAMES}};
   terminals_: TerminalsType = {{TERMINALS}};
   productions_: ProductionsType = {{PRODUCTIONS}};
-  table: Array<StateType> = {{TABLE}};
+  table: Array<StateType> = {{STATE_TABLE}};
   defaultActions: {[key:number]: any} = {{DEFAULT_ACTIONS}};
 
   performAction (yytext:string, yyleng:number, yylineno:number, yy:any, yystate:number /* action[1] */, $$:any /* vstack */, _$:any /* lstack */{{PARSE_PARAMS}}): any {

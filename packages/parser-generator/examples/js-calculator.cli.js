@@ -1,5 +1,6 @@
 const Fs = require('fs');
-const CalculatorParser = require('./js-calculator.js');
+const ParserAndLexer = require('./js-calculator'); // Note, imports js-calc..., not ts-calc...
+
 main(process.argv.slice(1));
 
 function main (args) {
@@ -11,6 +12,6 @@ function main (args) {
   const myYy = {
     // trace: function () { console.log('trace:', ...arguments); }
   };
-  const res = new CalculatorParser.Parser(myYy).parse(txt);
-  console.log('res:', res);
+  const res = new ParserAndLexer.jsCalculatorParser(myYy).parse(txt);
+  console.log(txt.trim(), '=', res);
 };

@@ -1,3 +1,4 @@
+import { JisonLexer, JisonLexerApi } from '@ts-jison/lexer';
 
 export class {{NAME}}Lexer extends JisonLexer implements JisonLexerApi {
   options: any = {{OPTIONS}};

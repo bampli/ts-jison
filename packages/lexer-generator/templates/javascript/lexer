@@ -1,9 +1,9 @@
-Object.defineProperty(exports, "__esModule", { value: true });
+const { JisonLexer } = require('@ts-jison/lexer');
+
 function {{NAME}}Lexer (yy = {}) {
   this.options = {{OPTIONS}};
 
   JisonLexer.call(this, yy);
-
 
   this.rules = {{RULES}};
   this.conditions = {{CONDITIONS}};
@@ -14,6 +14,8 @@ function {{NAME}}Lexer (yy = {}) {
     }
   }
 }
+
+// Extends JisonLexer
 {{NAME}}Lexer.prototype = Object.create(JisonLexer.prototype);
 Object.defineProperty({{NAME}}Lexer.prototype, 'constructor', {
   value: {{NAME}}Lexer,
@@ -21,4 +23,5 @@ Object.defineProperty({{NAME}}Lexer.prototype, 'constructor', {
   writable: true
 });
 
-exports.Lexer = {{NAME}}Lexer;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.{{NAME}}Lexer = {{NAME}}Lexer;
