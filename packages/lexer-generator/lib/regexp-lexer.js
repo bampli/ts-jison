@@ -15,7 +15,15 @@ function prepareRules(rules, macros, actions, tokens, startConditions, caseless)
 
     if (macros) {
         macros = prepareMacros(macros);
+    } else {
+        macros = {}
     }
+
+    const noBreakIf = new RegExp(macros['no-break-if'] === undefined
+                                 ? '$.' // nothing can follow '$'
+                                 : macros['no-break-if'] === ''
+                                 ? '.*'
+                                 : '^(?:' + macros['no-break-if'] + ')$');
 
     function tokenNumberReplacement (str, token) {
         return "return " + (tokens[token] || "'" + token + "'");
@@ -60,7 +68,18 @@ function prepareRules(rules, macros, actions, tokens, startConditions, caseless)
         if (tokens && action.match(/return '[^']+'/)) {
             action = action.replace(/return '([^']+)'/g, tokenNumberReplacement);
         }
-        actions.push('    case ' + i + ':' + action + '\n      break;');
+
+        if (noBreakIf.test(action)) {
+            if ('verbose' in macros) {
+                console.log('not adding break because ', noBreakIf, 'matches', action);
+            }
+        } else {
+            if ('verbose' in macros) {
+                console.log('adding break because ', noBreakIf, 'does not match', action);
+            }
+            action = action + '\n      break;';
+        }
+        actions.push('    case ' + i + ':' + action);
     }
 
     return newRules;

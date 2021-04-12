@@ -10,9 +10,12 @@ function hexlify (str:string): string {
 
 /* lexical grammar */
 %lex
+%verbose999           // change to 'verbose' to see lexer decisions
+%no-break-if          (.*[^a-z] | '') 'return' ([^a-z].* | '') // elide trailing 'break;'
+
 %%
 
-\s+                   if (yy.trace) yy.trace(`skipping whitespace ${hexlify(yytext)}`) // doesn't return
+\s+                   if (yy.trace) yy.trace(`skipping whitespace ${hexlify(yytext)}`)
 [0-9]+("."[0-9]+)?\b  return 'NUMBER'
 "*"                   return '*'
 "/"                   return '/'
