@@ -1,8 +1,7 @@
-LexerType: ':LexerType'
-
-Lexer: |-
+Import: |
   import { JisonLexer, JisonLexerApi } from '@ts-jison/lexer';
-  
+
+Constructor: |
   export class {{NAME}}Lexer extends JisonLexer implements JisonLexerApi {
     options: any = {{OPTIONS}};
     constructor (yy = {}) {
@@ -18,3 +17,5 @@ Lexer: |-
       }
     }
   }
+
+Export: ''

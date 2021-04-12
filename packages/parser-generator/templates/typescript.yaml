@@ -1,6 +1,6 @@
-Parser: |-
-  import { JisonParser, JisonParserApi, StateType, SymbolsType, TerminalsType, ProductionsType, o } from '@ts-jison/parser';
-  
+Import: import { JisonParser, JisonParserApi, StateType, SymbolsType, TerminalsType, ProductionsType, o } from '@ts-jison/parser';
+
+Constructor: |
   const {{STATE_TABLE_FACTORS}};
   
   export class {{NAME}}Parser extends JisonParser implements JisonParserApi {
@@ -25,7 +25,9 @@ Parser: |-
     }
   }
 
-ParseError: |-
+Export: ''
+
+ParseError: |
   function parseError (str: string, hash: {[key: string]: any}): void {
       if (hash.recoverable) {
           this.trace(str);

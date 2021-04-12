@@ -111,9 +111,9 @@ generator.constructor = function Jison_Generator (grammar, opt) {
     const templateText = require('fs').readFileSync(templatePath, "utf8")
     const template = require('js-yaml').load(templateText);
 
-    parser.parserTemplate = template.Parser;
+    parser.template = template;
     parser.parseParams = grammar.parseParams;
-    parser.parseError = lrGeneratorMixin.parseError = template.ParseError;
+    lrGeneratorMixin.parseError = template.ParseError;
 
     this.processGrammar(grammar);
 
@@ -1124,9 +1124,13 @@ lrGeneratorMixin.generateModuleCode = function generateModuleCode (opt) {
         { token: "STATE_ACTIONS", value: String(this.performAction) },
     ];
 
+    const preSubstitution = ''
+          + parser.template.Import
+          + parser.template.Constructor
+          + parser.template.Export;
     moduleCode = templateParms.reduce(function (str, parm) {
         return repl(str, parm.token, parm.value);
-    }, parser.parserTemplate);
+    }, preSubstitution);
     moduleCode = moduleCode.replace(/{{NAME}}/g, opt.moduleName || "");
 
     return moduleCode;

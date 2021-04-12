@@ -354,7 +354,7 @@ exports["test module generator from constructor"] = function() {
            ["y", "return 'Y';" ],
            ["$", "return 'EOF';" ]
        ],
-       options: { generate: true }
+       options: { generate: true, template: "javascript" }
     };
 
     var input = "xxyx";

@@ -1,8 +1,7 @@
-LexerType: ''
-
-Lexer: |-
+Import: |
   const { JisonLexer } = require('@ts-jison/lexer');
-  
+
+Constructor: |
   function {{NAME}}Lexer (yy = {}) {
     this.options = {{OPTIONS}};
   
@@ -25,6 +24,9 @@ Lexer: |-
     enumerable: false,
     writable: true
   });
-  
+
+Export: |
+
+  // Export module
   Object.defineProperty(exports, "__esModule", { value: true });
   exports.{{NAME}}Lexer = {{NAME}}Lexer;

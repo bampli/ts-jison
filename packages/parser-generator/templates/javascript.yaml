@@ -1,6 +1,6 @@
-Parser: |-
-  const { JisonParser, o } = require('@ts-jison/parser');
-  
+Import: const { JisonParser, o } = require('@ts-jison/parser');
+
+Constructor: |
   function {{NAME}}Parser (yy = {}, lexer = new {{NAME}}Lexer(yy)) {
     const {{STATE_TABLE_FACTORS}};
   
@@ -28,11 +28,14 @@ Parser: |-
     enumerable: false,
     writable: true
   });
-  
+
+Export: |
+
+  // Export module
   Object.defineProperty(exports, "__esModule", { value: true });
   exports.{{NAME}}Parser = {{NAME}}Parser;
 
-ParseError: |-
+ParseError: |
   function parseError (str, hash) {
       if (hash.recoverable) {
           this.trace(str);
