@@ -1221,7 +1221,7 @@ lrGeneratorMixin.generateTableCode = function (table) {
 
     // Return the variable initialization code and the table code
     return {
-        commonCode: variables.join(","),
+        commonCode: variables.length > 0 ? variables.join(",") : "noCommonCode=true",
         moduleCode: moduleCode
     };
 };

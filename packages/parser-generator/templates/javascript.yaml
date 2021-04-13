@@ -1,33 +1,25 @@
 Import: const { JisonParser, o } = require('@ts-jison/parser');
 
 Constructor: |
-  function {{NAME}}Parser (yy = {}, lexer = new {{NAME}}Lexer(yy)) {
-    const {{STATE_TABLE_FACTORS}};
-  
-    JisonParser.call(this, yy, lexer);
-  
-    this.symbols_ = {{STATE_NAMES}};
-    this.terminals_ = {{TERMINALS}};
-    this.productions_ = {{PRODUCTIONS}};
-    this.table = {{STATE_TABLE}};
-    this.defaultActions = {{DEFAULT_ACTIONS}};
-  
-    this.performAction = function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */{{PARSE_PARAMS}}) {
-  /* this == yyval */
-  {{ACTION_INCLUDE}}    const $0 = $$.length - 1;
-      switch (yystate) {
-  {{STATE_ACTIONS}}
+  const {{STATE_TABLE_FACTORS}};
+
+  class {{NAME}}Parser extends JisonParser {
+      constructor(yy = {}, lexer = new {{NAME}}Lexer(yy)) {
+          super(yy, lexer);
+          this.symbols_ = {{STATE_NAMES}};
+          this.terminals_ = {{TERMINALS}};
+          this.productions_ = {{PRODUCTIONS}};
+          this.table = {{STATE_TABLE}};
+          this.defaultActions = {{DEFAULT_ACTIONS}};
       }
-    }
+      performAction (yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */{{PARSE_PARAMS}}) {
+  /* this == yyval */
+  {{ACTION_INCLUDE}}          const $0 = $$.length - 1;
+          switch (yystate) {
+  {{STATE_ACTIONS}}
+          }
+      }
   }
-  
-  // Extends JisonParser
-  {{NAME}}Parser.prototype = Object.create(JisonParser.prototype);
-  Object.defineProperty({{NAME}}Parser.prototype, 'constructor', {
-    value: {{NAME}}Parser,
-    enumerable: false,
-    writable: true
-  });
 
 Export: |
 

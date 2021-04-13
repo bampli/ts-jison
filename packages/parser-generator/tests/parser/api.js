@@ -407,7 +407,7 @@ exports["test intance creation"] = function () {
       },
       setInput: function (){}
     };
-    var parser2 = new parser.Parser();
+    var parser2 = new parser();
     parser2.lexer = parser.lexer;
     parser2.parse('xx\nxy');
 

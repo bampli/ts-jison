@@ -60,7 +60,7 @@
     "run:calculator": "(cd packages/parser-generator/examples/ && node ts-calculator.js calculator.input.txt)",
     "cli:calculator": "(cd packages/parser-generator/examples/ && node ts-calculator.cli.js calculator.input.txt)",
     "ts-node:calculator": "(cd packages/parser-generator/examples/ && ts-node ts-calculator.ts calculator.input.txt)",
-    "test": "(cd packages/parser-generator/examples/ && make js-calculator-demo && make ts-calculator-demo)",
-    "test-todo": "(cd packages/lexer-generator/ && node tests/all-tests.js);(cd packages/parser-generator/ && node tests/all-tests.js);"
+    "test": "(cd packages/parser-generator/examples/ && make js-calculator-demo && make ts-calculator-demo);(cd packages/lexer-generator/ && node tests/all-tests.js)",
+    "test-todo": "(cd packages/parser-generator/ && node tests/all-tests.js);"
   }
 }

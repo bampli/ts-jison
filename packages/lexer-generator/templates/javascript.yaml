@@ -2,28 +2,20 @@ Import: |
   const { JisonLexer } = require('@ts-jison/lexer');
 
 Constructor: |
-  function {{NAME}}Lexer (yy = {}) {
-    this.options = {{OPTIONS}};
-  
-    JisonLexer.call(this, yy);
-  
-    this.rules = {{RULES}};
-    this.conditions = {{CONDITIONS}};
-    this.performAction = function anonymous(yy,yy_,$avoiding_name_collisions,YY_START) {
-  {{ACTION_INCLUDE}}    const YYSTATE=YY_START;
-      switch($avoiding_name_collisions) {
-  {{STATE_ACTIONS}}
+  class {{NAME}}Lexer extends JisonLexer {
+      constructor (yy = {}) {
+          super(yy);
+          this.options = {{OPTIONS}};
+          this.rules = {{RULES}};
+          this.conditions = {{CONDITIONS}};
       }
-    }
+      performAction (yy, yy_, $avoiding_name_collisions, YY_START) {
+  {{ACTION_INCLUDE}}              let YYSTATE = YY_START;
+              switch ($avoiding_name_collisions) {
+  {{STATE_ACTIONS}}
+          }
+      }
   }
-  
-  // Extends JisonLexer
-  {{NAME}}Lexer.prototype = Object.create(JisonLexer.prototype);
-  Object.defineProperty({{NAME}}Lexer.prototype, 'constructor', {
-    value: {{NAME}}Lexer,
-    enumerable: false,
-    writable: true
-  });
 
 Export: |
 
