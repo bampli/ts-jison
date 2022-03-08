@@ -1,6 +1,7 @@
 {
   "name": "@ts-jison/lexer",
   "version": "0.2.1",
+  "license": "MIT",
   "main": "./lib/lexer.js",
   "types": "./lib/lexer.d.ts",
   "files": [

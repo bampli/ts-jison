@@ -1,6 +1,7 @@
 {
   "name": "@ts-jison/parser",
   "version": "0.2.1",
+  "license": "MIT",
   "main": "./lib/parser.js",
   "types": "./lib/parser.d.ts",
   "files": [
