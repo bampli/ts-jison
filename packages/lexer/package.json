@@ -1,6 +1,6 @@
 {
   "name": "@ts-jison/lexer",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "license": "MIT",
   "main": "./lib/lexer.js",
   "types": "./lib/lexer.d.ts",
@@ -8,7 +8,7 @@
     "lib"
   ],
   "dependencies": {
-    "@ts-jison/common": "^0.2.1"
+    "@ts-jison/common": "^0.2.2"
   },
   "publishConfig": {
     "access": "public"
