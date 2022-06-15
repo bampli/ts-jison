@@ -9,6 +9,7 @@ Status:
 This works (I'm using it in a few javascript and typescritp projects) and runs the original tests. If you want to geek about this, ping ericP on discord or ericprud on gitter.
 
 Components:
+=====
 * [@ts-jison/parser-generator](http://github.com/ericprud/ts-jison/tree/main/packages/parser-generator) - A lightly-typescriptified version of jison
 * [@ts-jison/lexer-generator](http://github.com/ericprud/ts-jison/tree/main/packages/lexer-generator) - A lightly-typescriptified version of jison-lex
 * [@ts-jison/parser](http://github.com/ericprud/ts-jison/tree/main/packages/parser) - runtime library for parsers
@@ -16,9 +17,8 @@ Components:
 * [@ts-jison/common](http://github.com/ericprud/ts-jison/tree/main/packages/common) - functions needed by parser and lexer
 
 ## Example grammar:
+This example parses and executes mathematical expressions:
 ``` antlr
-
-/* description: Parses and executes mathematical expressions. */
 %{
 function hexlify (str:string): string { // elide TS types for js-compatibility
   return str.split('').map(ch => '0x' + ch.charCodeAt(0).toString(16)).join(', ')
@@ -66,17 +66,25 @@ ts-jison -t typescript -n TsCalc -n TsCalc -o ts-calculator.ts ts-calculator.jis
 
 Convert the .jison file to a JS file:
 ``` shell
-ts-jison -t typescript -n TsCalc -n TsCalc -o ts-calculator.ts ts-calculator.jison
+ts-jison -n TsCalc -n TsCalc -o js-calculator.js js-calculator.jison
 ```
 
 ## Example invocation:
-``` js
-const ParserAndLexer = require('./ts-calculator'); // Note, imports ts-calc..., not js-calc...
+``` typescript
+const ParserAndLexer = require('./ts-calculator');
 
   const txt = ``;
   const res = new ParserAndLexer.TsCalcParser().parse(txt);
   console.log(txt.trim(), '=', res);
 ```
+or for JS:
+``` typescript
+const ParserAndLexer = require('./js-calculator');
+```
+
+## Docs
+See [parser-generator docs](http://github.com/ericprud/ts-jison/tree/main/packages/parser-generator) for more details.
+
 
 How to contribute
 -----------------
