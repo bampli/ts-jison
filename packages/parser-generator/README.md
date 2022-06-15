@@ -213,7 +213,7 @@ For more information on creating grammars and using the generated parsers, read 
 How to contribute
 -----------------
 
-See [CONTRIBUTING.md](https://github.com/zaach/jison/blob/main/CONTRIBUTING.md) for contribution guidelines, how to run the tests, etc.
+See [CONTRIBUTING.md](https://github.com/ericprud/ts-jison/blob/main/CONTRIBUTING.md) for contribution guidelines, how to run the tests, etc.
 
 Projects using Jison
 ------------------
