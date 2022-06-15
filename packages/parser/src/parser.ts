@@ -43,7 +43,7 @@ export abstract class JisonParser {
     }
   }
 
-  parse(input: string) {
+  parse(input: string, yy: any = typeof this.yy === 'function' && typeof this.yy.constructor === 'function' ? new this.yy(this, this.lexer) : Object.create(this.yy)) {
     var self = this,
       stack = [0],
       tstack = [], // token stack
@@ -62,14 +62,7 @@ export abstract class JisonParser {
     //this.reductionCount = this.shiftCount = 0;
     var lexer: JisonLexerApi = Object.create(this.lexer!) as JisonLexerApi;
 
-    var typedYy: { [key: string]: any; } = {}
-    var sharedState = { yy: typedYy };
-    // copy state
-    for (var k in this.yy) {
-      if (Object.prototype.hasOwnProperty.call(this.yy, k)) {
-        sharedState.yy[k] = this.yy[k];
-      }
-    }
+    var sharedState = { yy };
 
     lexer.setInput(input, sharedState.yy);
     (<any>sharedState.yy).lexer = lexer;
