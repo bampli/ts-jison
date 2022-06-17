@@ -54,18 +54,8 @@
     "build999": "lerna run build",
     "build": "for d in packages/{common,lexer,parser}/; do (cd $d &&  tsc -b tsconfig.package.json); done",
     "clean": "rm -r packages/{common,lexer,parser}/lib/",
-
-    "js-calculator": "npm run generate:js-calculator && npm run cli:js-calculator",
-    "generate:js-calculator": "(cd packages/parser-generator/examples/ && ../lib/cli.js -n TsCalc -n TsCalc -o js-calculator.ts js-calculator.jison)",
-    "run:js-calculator": "(cd packages/parser-generator/examples/ && node js-calculator.js calculator.input.txt)",
-    "cli:js-calculator": "(cd packages/parser-generator/examples/ && node js-calculator.cli.js calculator.input.txt)",
-
-    "ts-calculator": "npm run generate:ts-calculator && npm run compile:ts-calculator && npm run cli:ts-calculator && npm run ts-node:ts-calculator",
-    "generate:ts-calculator": "(cd packages/parser-generator/examples/ && ../lib/cli.js -t typescript -n TsCalc -n TsCalc -o ts-calculator.ts ts-calculator.jison)",
-    "compile:ts-calculator": "(cd packages/parser-generator/examples/ && tsc ts-calculator.ts)",
-    "run:ts-calculator": "(cd packages/parser-generator/examples/ && node ts-calculator.js calculator.input.txt)",
-    "cli:ts-calculator": "(cd packages/parser-generator/examples/ && node ts-calculator.cli.js calculator.input.txt)",
-    "ts-node:ts-calculator": "(cd packages/parser-generator/examples/ && ts-node ts-calculator.ts calculator.input.txt)",
+    "js-calculator": "(cd packages/parser-generator/ && npm run js-calculator)",
+    "ts-calculator": "(cd packages/parser-generator/ && npm run ts-calculator)",
     "test": "npm run js-calculator && npm run ts-calculator && (cd packages/lexer-generator/ && node tests/all-tests.js)",
     "test:make": "(cd packages/parser-generator/examples/ && make clean && make ts-node-calculator-demo && make js-calculator-demo && make ts-calculator-demo)",
     "test-todo": "(cd packages/parser-generator/ && node tests/all-tests.js);"

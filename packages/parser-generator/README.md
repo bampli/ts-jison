@@ -1,5 +1,8 @@
 @ts-jison/parser-generator
 =====
+
+Please read these docs on [github](http://github.com/ericprud/ts-jison/blob/HEAD/packages/parser-generator#ts-jisonparser-generator) to enable links to local files.
+
 A lightly-typescriptified API for creating parsers in JavaScript
 -----------------------------------------
 Jison generates bottom-up parsers in JavaScript. Its API is similar to Bison's, hence the name. It supports many of Bison's major features, plus some of its own. If you are new to parser generators such as Bison, and Context-free Grammars in general, a [good introduction][1] is found in the Bison manual. If you already know Bison, Jison should be easy to pickup.
@@ -35,7 +38,7 @@ Components:
 * [common](../common) - functions needed by parser and lexer
 
 ## Jison file structure
-By convention, a Jison grammar file has a `.jison` extension. The grammar file includes:
+By convention, a Jison grammar file has a `.jison` extension. Unlike [Bison/Flex](http://dinosaur.compilertools.net/bison/bison_4.html), a single file can hold both the parsing grammar and lexing rules. The grammar file includes:
 1. a section of verbatim input in `%{...%}` to include in the output file,
 2. lexer directives,
 3. a `%%` demarcation,
@@ -45,7 +48,11 @@ By convention, a Jison grammar file has a `.jison` extension. The grammar file i
 7. a `%%` demarcation,
 8. parser rules.
 
-## Example grammar
+## Calculator example
+
+Every parser generator includes a calculator example. It's not a great example because it evaluates during parsing and most of the time, parser-generators are used to create a parse tree and which is later executed (e.g. parse and SQL query into an execution plan). That said, here's your imperfect calculator example.
+
+### Calculator grammar
 This example parses and executes mathematical expressions. The example [ts-calculator.jison](examples/ts-calculator.jison) file from the the [examples](examples) directory.
 ``` antlr
 
@@ -95,8 +102,29 @@ The [js-calculator.jison](examples/js-calculator.jison) example elides types:
 function hexlify (str) { // no parameter or retunr types in javascript
 ...
 ```
+Below are several ways to build and run this demo using make, run scripts, or the command line.
 
-## Example compilation:
+### make calculator demo
+If you have make installed, you can take advantage of the [Makefile](examples/Makefile) in [examples](examples) to build the typescript calculator:
+``` shell
+make ts-calculator-demo
+```
+or the javascript calculator:
+``` shell
+make js-calculator-demo
+```
+Setting the `TRACE_CALC` environment variable will make the lexer dump whitespace as seen in the `\\s+` rule above.
+``` shell
+TRACE_CALC=true make ts-calculator-demo
+```
+
+### package.json run scripts
+The package.json has run scripts called `ts-calculator` and `js-calculator`:
+``` shell
+npm run ts-calculator
+```
+
+### Calculator compilation:
 Convert the .jison file to a TS file:
 ``` shell
 ts-jison -t typescript -n TsCalc -n TsCalc -o ts-calculator.ts ts-calculator.jison
@@ -109,10 +137,9 @@ ts-jison -n TsCalc -n TsCalc -o js-calculator.js js-calculator.jison
 
 The output files (`js-calculator.js` and `ts-calculator.ts` respectively) need not reflect the name of the input Jison file or the `-n <parser class name>` arguments.
 
-Usage from the command line
------------------------
+See [GeneratedParser](docs/GeneratedParser.md) for the structure of the generated parser.
 
-## Example invocation:
+### Calculator invocation:
 From Typescript, require the `examples/ts-calculator.ts`, (or `./` if you're already in the examples directory):
 ``` typescript
 const ParserAndLexer = require('./ts-calculator');
@@ -125,6 +152,9 @@ or for JS:
 ``` typescript
 const ParserAndLexer = require('./js-calculator');
 ```
+
+Usage from the command line
+-----------------------
 
 You clone the github repository and compile the examples:
 
