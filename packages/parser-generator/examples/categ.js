@@ -72,12 +72,12 @@
   }
 */
 var categ = (function(){
-var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,6],$V1=[1,7],$V2=[1,8],$V3=[5,10,11,12],$V4=[8,10,11,12];
+var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,9],$V1=[1,7],$V2=[1,8],$V3=[5,11,12,13],$V4=[8,11,12,13];
 var parser = {trace: function trace () { },
 yy: {},
-symbols_: {"error":2,"code":3,"lines":4,"EOF":5,"line":6,"l":7,"EOL":8,"entity":9,"LINE":10,"LOWER":11,"CAMEL":12,"$accept":0,"$end":1},
-terminals_: {2:"error",5:"EOF",8:"EOL",10:"LINE",11:"LOWER",12:"CAMEL"},
-productions_: [0,[3,2],[4,2],[4,1],[6,2],[7,2],[7,2],[7,1],[7,1],[9,1],[9,1]],
+symbols_: {"error":2,"code":3,"lines":4,"EOF":5,"line":6,"l":7,"EOL":8,"entity":9,"other":10,"LINE":11,"LOWER":12,"CAMEL":13,"$accept":0,"$end":1},
+terminals_: {2:"error",5:"EOF",8:"EOL",11:"LINE",12:"LOWER",13:"CAMEL"},
+productions_: [0,[3,2],[4,2],[4,1],[6,2],[7,2],[7,2],[7,1],[7,1],[10,1],[9,1],[9,1]],
 performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
 /* this == yyval */
 
@@ -89,19 +89,19 @@ break;
 case 2: case 4: case 5: case 6:
  this.$ = $$[$0-1] + $$[$0]; 
 break;
-case 3: case 7: case 8:
+case 3: case 7: case 8: case 9:
  this.$ = $$[$0]; 
 break;
-case 9:
+case 10:
  this.$ = "cyclo" 
 break;
-case 10:
+case 11:
  this.$ = "Cyclo" 
 break;
 }
 },
-table: [{3:1,4:2,6:3,7:4,9:5,10:$V0,11:$V1,12:$V2},{1:[3]},{5:[1,9],6:10,7:4,9:5,10:$V0,11:$V1,12:$V2},o($V3,[2,3]),{8:[1,11],9:12,10:[1,13],11:$V1,12:$V2},o($V4,[2,7]),o($V4,[2,8]),o($V4,[2,9]),o($V4,[2,10]),{1:[2,1]},o($V3,[2,2]),o($V3,[2,4]),o($V4,[2,5]),o($V4,[2,6])],
-defaultActions: {9:[2,1]},
+table: [{3:1,4:2,6:3,7:4,9:5,10:6,11:$V0,12:$V1,13:$V2},{1:[3]},{5:[1,10],6:11,7:4,9:5,10:6,11:$V0,12:$V1,13:$V2},o($V3,[2,3]),{8:[1,12],9:13,10:14,11:$V0,12:$V1,13:$V2},o($V4,[2,7]),o($V4,[2,8]),o($V4,[2,10]),o($V4,[2,11]),o($V4,[2,9]),{1:[2,1]},o($V3,[2,2]),o($V3,[2,4]),o($V4,[2,5]),o($V4,[2,6])],
+defaultActions: {10:[2,1]},
 parseError: function parseError (str, hash) {
     if (hash.recoverable) {
         this.trace(str);
@@ -576,20 +576,24 @@ options: {},
 performAction: function anonymous(yy,yy_,$avoiding_name_collisions,YY_START) {
 var YYSTATE=YY_START;
 switch($avoiding_name_collisions) {
-case 0: return 11; 
+case 0: return 12; 
 break;
-case 1: return 12; 
+case 1: return 13; 
 break;
 case 2: return 8; 
 break;
 case 3: return 5; 
 break;
-case 4: return 10; 
+case 4: return 11; 
+break;
+case 5: return 11; 
+break;
+case 6: return 11; 
 break;
 }
 },
-rules: [/^(?:category\b)/,/^(?:Category\b)/,/^(?:[\n\r]+)/,/^(?:$)/,/^(?:.)/],
-conditions: {"INITIAL":{"rules":[0,1,2,3,4],"inclusive":true}}
+rules: [/^(?:category\b)/,/^(?:Category\b)/,/^(?:[\n\r]+)/,/^(?:$)/,/^(?:[a-zA-Z0-9]+)/,/^(?:(.|\n))/,/^(?:.)/],
+conditions: {"INITIAL":{"rules":[0,1,2,3,4,5,6],"inclusive":true}}
 });
 return lexer;
 })();

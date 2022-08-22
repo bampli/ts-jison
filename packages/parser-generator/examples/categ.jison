@@ -8,6 +8,11 @@
 <<EOF>>                     { return 'EOF'; }
 .                           { return 'LINE'; }
 
+/* ------------------
+[a-zA-Z0-9]+				{ return 'WORD'; }
+(.|\n)						{ return 'CHAR'; }
+--------------------- */
+
 /lex
 
 %%
@@ -27,9 +32,13 @@ line
 
 l
     : l entity              { $$ = $1 + $2; }
-    | l LINE                { $$ = $1 + $2; }
+    | l other            { $$ = $1 + $2; }
     | entity                { $$ = $1; }
-    | LINE                  { $$ = $1; }
+    | other              { $$ = $1; }
+    ;
+
+other
+    : LINE                  { $$ = $1; }
     ;
 
 entity
