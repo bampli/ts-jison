@@ -1,6 +1,13 @@
 ts-jison
 =====
 
+more docs:
+
+https://npm.io/package/@ts-jison/parser-generator
+https://gerhobbelt.github.io/jison/docs/
+https://github.com/zaach/jison/wiki/ProjectsUsingJison
+https://docs.oracle.com/cd/E19504-01/802-5880/lex-6/index.html
+
 This is a fork of Zach Carter <zach@carter.name>'s [jison module](https://www.npmjs.com/package/jison) tweaked to use just enough templates to make typescript compilers tollerate the generated parser.
 
 Status:
